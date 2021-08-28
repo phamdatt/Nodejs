@@ -5,7 +5,7 @@ const path = require('path') //lay duong dan
 const app = express()
 const port = 3000 // khoi tao port
 
-const route = require('./routes/index');
+const route = require('../src/routes/index')
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resource/views')) // cau hinh duong dan cho views
 app.use(express.static(path.join(__dirname, 'public')));
@@ -18,7 +18,7 @@ app.engine('hbs', expressHandlebars({
 }));
 
 // Route init
-route(app);
+route(app)
 //IP :127.0.0.1 - localhost
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
