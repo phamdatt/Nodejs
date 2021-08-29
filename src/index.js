@@ -4,7 +4,9 @@ const expressHandlebars = require('express-handlebars'); // su dung template
 const path = require('path') //lay duong dan 
 const app = express()
 const port = 3000 // khoi tao port
-
+const db = require('./config/db/index')
+//Connect db
+db.connect();
 const route = require('../src/routes/index')
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resource/views')) // cau hinh duong dan cho views
