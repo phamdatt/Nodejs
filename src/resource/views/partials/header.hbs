@@ -1,40 +1,54 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+<header class="header">
+    <div class="gird">
+        <nav class="header__navbar">
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a href="" class="header__navbar-icon-link">
+                        <i class=" header__navbar-icon fas fa-sms">
+                        </i>
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <li class="header__navbar-item">
+                    <input type="text" placeholder="Tìm kiếm trên Mechat" class="header__navbar-input" />
+                </li>
+
+            </ul>
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a>
+                        <i class=" header__navbar-icon fas fa-home"></i>
+                    </a>
+                </li>
+                <li class="header__navbar-item">
+                    <a>
+                        <i class=" header__navbar-icon fas fa-user-friends"></i>
+                    </a>
+                </li>
+                <li class="header__navbar-item">
+                    <a>
+                        <i class=" header__navbar-icon fas fa-tv"></i>
+                    </a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a class="header__navbar-item-link">
+                        <i class="header__navbar-icon fas fa-bell"></i>
+                    </a>
+                </li>
+
+                <li class="header__navbar-item header__navbar-item--bold header__navbar-item-modal-active">
+                    <i class=" header__navbar-icon fas fa-user"></i>
+                    <div class="header__navbar-item-modal">
+                        <ul class="header__navbar-item-modal-item-list">
+                            <li>Profile</li>
+                            <li>Setting</li>
+                            <li>Logout</li>
+                            <li>BlaBla</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </div>
-</nav>
+</header>
