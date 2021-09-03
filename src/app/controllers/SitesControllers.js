@@ -1,4 +1,5 @@
 const Products = require('../model/Products');
+
 class SitesControllers {
     index(request, response) {
         response.render('home');
