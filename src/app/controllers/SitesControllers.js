@@ -2,7 +2,7 @@ const Products = require('../model/Products');
 
 class SitesControllers {
     index(request, response) {
-        response.render('home');
+        response.render('login');
         // response.json({
         //     name: 'test'
         // });
@@ -16,5 +16,9 @@ class SitesControllers {
         //     }
         // });
     }
+    home(request, response) {
+        response.render('home');
+    }
+
 }
 module.exports = new SitesControllers;

@@ -21,10 +21,7 @@ io.on('connection', socket => {
     socket.on('chatMessage', (msg) => {
         io.emit('message', msg);
     })
-
 })
-
-
 
 //Connect db
 // db.connect();
