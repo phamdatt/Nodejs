@@ -1,42 +1,65 @@
-<div class="content__user-list">
-    <header class="content__user-header">
-        <ul class="content__user-header-list">
-            <li class="content__user-header-item">
-                <p class="content__user-header-title">Chat</p>
+<div class="container">
+    <div class="user__list">
+        <div class="user__list-header"></div>
+        <ul class="user__list-item">
+            <li class="user__list-item-info">
+                <img src="image/me.jpg" class="user__list-item-info-img" />
+                <div class="user__list-item-info-content">
+                    <p>asd</p>
+                    <p>asd</p>
+                </div>
+                <div class="user__list-item-info-menu">
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                </div>
             </li>
-            <li class="content__user-header-item">
-                <a class="header__navbar-item-link">
-                    <i class="header__navbar-icon fas fa-bell"></i>
-                </a>
+            <li class="user__list-item-info">
+                <img src="image/me.jpg" class="user__list-item-info-img" />
+                <div class="user__list-item-info-content">
+                    <p>asd</p>
+                    <p>asd</p>
+                </div>
+                <div class="user__list-item-info-menu">
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                </div>
             </li>
+            <li class="user__list-item-info">
+                <img src="image/me.jpg" class="user__list-item-info-img" />
+                <div class="user__list-item-info-content">
+                    <p>asd</p>
+                    <p>asd</p>
+                </div>
+                <div class="user__list-item-info-menu">
+                    <a href="" class="header__navbar-icon-link">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                </div>
+            </li>
+
         </ul>
-    </header>
-    <div>
-        <div class="content__user-item">
-            <div>
-                <img src="image/me.jpg" class="content__user-item-img" />
-            </div>
-            <div class="content__user-item-right">
-                <p class="content__user-item-right-title">Account</p>
-                <p class="content__user-item-right-title">Account</p>
+    </div>
+    <div class="chatMessage">
+        <div class="chatmessage__header"></div>
+        <div class="chatmessage__content">
+            <div class="message">
+                <div class="message-content">
+                    <p class="text">Welcome to Mechat</p>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="chat-message">
-    <div class="message">
-        <p class="text">
-            Wellcome to MeChat!
-        </p>
-    </div>
-    <form id="chat-form">
-        <div>
-            <input type="text" class="footer__chat-message" placeholder="Send message" required id="msg"
-                autocomplete="off" />
+        <div class="chatmessage__footer">
+            <form id="chat-form" method="POST">
+                <div>
+                    <input type="text" class="footer__chat-message" placeholder="Send message" required id="msg"
+                        autocomplete="off" />
+                </div>
+                <button type="submit" class="btn-send">
+                    <i class="far fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
-        <button type="submit" class="btn-send">
-            <i class="far fa-paper-plane"></i>
-        </button>
-    </form>
-</div>
+    </div>
 </div>
