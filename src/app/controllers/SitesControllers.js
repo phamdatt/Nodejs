@@ -13,9 +13,12 @@ class SitesControllers {
 
         Products.find({}).then((products) => {
             // response.render('home', {
-            // products: products
+            //     products: products
             // })
-            response.json(products)
+            response.json({
+                code: 0,
+                payload: products
+            })
         }).catch(next);
     }
 }
