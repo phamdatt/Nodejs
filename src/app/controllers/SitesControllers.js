@@ -12,9 +12,6 @@ class SitesControllers {
     index(request, response, next) {
 
         Products.find({}).then((products) => {
-            // response.render('home', {
-            //     products: products
-            // })
             response.json({
                 code: 0,
                 payload: products
