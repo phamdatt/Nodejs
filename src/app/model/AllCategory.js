@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const AllCategory = new Schema({
-    id: Number,
+    catId: Number,
     name: String,
     slug: String,
     parentId: Number,

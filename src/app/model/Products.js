@@ -3,8 +3,12 @@ const Schema = mongoose.Schema;
 const Products = new Schema({
     name: String,
     description: String,
-    image: String,
+    catId: Number,
+    color: [],
+    disCount: Number,
+    deal: Boolean,
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
+    image: [],
 });
 module.exports = mongoose.model('Products', Products);

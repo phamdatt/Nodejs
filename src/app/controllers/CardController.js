@@ -17,5 +17,15 @@ class CardController {
             })
         })
     }
+    addToCart(request, response) {
+
+    }
+
+    updateCart(request, response) {
+
+    }
+    removeItemCart(request, response) {
+
+    }
 }
 module.exports = new CardController;

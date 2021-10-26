@@ -18,5 +18,21 @@ class SitesControllers {
             })
         }).catch(next);
     }
+    getProductDetail(request, response, next) {
+        Products.findOne({ _id: request.params.productId }).then((products) => {
+            response.json({
+                code: 0,
+                payload: [products]
+            })
+        }).catch(next);
+    }
+    getProductRelate(request, response, next) {
+        Products.find({ catId: request.params.catId }).then((products) => {
+            response.json({
+                code: 0,
+                payload: products
+            })
+        }).catch(next);
+    }
 }
 module.exports = new SitesControllers;
