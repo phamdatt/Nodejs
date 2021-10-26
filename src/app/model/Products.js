@@ -10,5 +10,6 @@ const Products = new Schema({
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
     image: [],
+    price:Number,
 });
 module.exports = mongoose.model('Products', Products);

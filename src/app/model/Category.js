@@ -13,10 +13,23 @@ const Category = new Schema({
                 {
                     name: String,
                     category_Id: Number,
-                    childCategory: [],
+                    childCategory: [
+                        {
+                            name: String,
+                            category_Id: Number,
+                            childCategory: [],
+                            slug: String,
+                            banner: [],
+                            createdAt: { type: Date, default: Date.now },
+                            updatedAt: { type: Date, default: Date.now },
+                            catId: Number
+                        }
+                    ],
                     slug: String,
+                    banner: [],
                     createdAt: { type: Date, default: Date.now },
                     updatedAt: { type: Date, default: Date.now },
+                    catId: Number
                 }
             ],
             slug: String,
