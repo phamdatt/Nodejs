@@ -1,18 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const cardSchema = new Schema({
-    userId: {
-        type: String,
-        ref: 'Account'
+  userId: {
+    type: String,
+    ref: "Account",
+  },
+  itemList: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Products",
     },
-    items: [
-        {
-            item: {
-                type: mongoose.Schema.Types.ObjectID, ref: 'Products'
-            },
-            qty: { type: Number, default: 1 },
-            price: { type: Number, default: 0 }
-        }
-    ]
-})
-module.exports = mongoose.model('Cards', cardSchema);
+  ],
+  quantity: Number,
+  price: Number,
+});
+module.exports = mongoose.model("Cards", cardSchema);

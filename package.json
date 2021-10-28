@@ -23,10 +23,11 @@
   },
   "homepage": "https://github.com/phamdatt3009/Nodejs#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "moment": "^2.29.1",
-    "mongoose": "^6.0.2",
+    "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
     "socket.io": "^4.2.0"
   },
