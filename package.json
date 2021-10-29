@@ -26,6 +26,7 @@
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
