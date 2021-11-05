@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const sitesControllers = require("../app/controllers/SitesControllers");
+
 router.get("/getAllProduct", sitesControllers.index);
 router.get(
   "/product_detail/productId=:productId",
@@ -11,8 +12,12 @@ router.get(
   sitesControllers.getProductRelate
 );
 router.get("/product_favorite/", sitesControllers.getProductFavorite);
-router.post(
+router.put(
   "/remove_favorite/productId=:productId",
   sitesControllers.removeFavorite
+);
+router.put(
+  "/add_favorite/productId=:productId",
+  sitesControllers.addFavorite
 );
 module.exports = router;

@@ -1,6 +1,7 @@
 const express = require("express"); // su dung package express
 const morgan = require("morgan"); //su dung package morgan ->xem request , hoac dung de debug
 const expressHandlebars = require("express-handlebars"); // su dung template
+var methodOverride = require("method-override");
 const path = require("path"); //lay duong dan'
 const http = require("http");
 const app = express();
@@ -20,6 +21,7 @@ app.use(
   })
 );
 app.use(express.json());
+
 //Logger
 app.use(morgan("combined"));
 //Template engine
@@ -29,6 +31,7 @@ app.engine(
     extname: ".hbs",
   })
 );
+app.use(methodOverride("_method"));
 
 // Route init
 route(app);

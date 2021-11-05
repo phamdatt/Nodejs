@@ -41,6 +41,51 @@ class SitesControllers {
       })
       .catch(next);
   }
-  removeFavorite(request, response, next) {}
+  removeFavorite(request, response, next) {
+    const id = request.params.productId;
+    const updateObject = {
+      favorite: false,
+    };
+    Products.updateOne({ _id: id }, { $set: updateObject })
+      .exec()
+      .then(() => {
+        console.log(updateObject);
+        response.status(200).json({
+          code: 0,
+          message: "Course is updated",
+          payload: updateObject,
+        });
+      })
+      .catch((err) => {
+        response.status(500).json({
+          code: 1,
+          success: false,
+          message: "Server error. Please try again.",
+        });
+      });
+  }
+  addFavorite(request, response, next) {
+    const id = request.params.productId;
+    const updateObject = {
+      favorite: true,
+    };
+    Products.updateOne({ _id: id }, { $set: updateObject })
+      .exec()
+      .then(() => {
+        console.log(updateObject);
+        response.status(200).json({
+          code: 0,
+          message: "Course is updated",
+          payload: updateObject,
+        });
+      })
+      .catch((err) => {
+        response.status(500).json({
+          code: 1,
+          success: false,
+          message: "Server error. Please try again.",
+        });
+      });
+  }
 }
 module.exports = new SitesControllers();
