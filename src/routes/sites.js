@@ -16,8 +16,5 @@ router.put(
   "/remove_favorite/productId=:productId",
   sitesControllers.removeFavorite
 );
-router.put(
-  "/add_favorite/productId=:productId",
-  sitesControllers.addFavorite
-);
+router.put("/add_favorite/productId=:productId", sitesControllers.addFavorite);
 module.exports = router;

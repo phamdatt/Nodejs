@@ -1,13 +1,34 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const accountSchema = new Schema({
-    userName: String,
-    passWord: String,
-    cardId: [
-        {
-            type: String,
-            ref: 'Cards'
-        }
-    ]
-})
-module.exports = mongoose.model('Account', accountSchema);
+  email: {
+    type: String,
+    required: true,
+    minlength: 5,
+    maxlength: 255,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5,
+    maxlength: 255,
+  },
+  username: {
+    type: String,
+    required: true,
+  },
+  gender: {
+    type: Number,
+    required: true,
+  },
+  phonenumber: {
+    type: String,
+    required: true,
+  },
+  birthday: {
+    type: String,
+    required: true,
+  },
+});
+module.exports = mongoose.model("Account", accountSchema);

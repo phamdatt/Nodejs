@@ -13,5 +13,6 @@ function route(app) {
   app.use("/search_category", allCategoryRouter);
   app.use("/account", accountRouter);
   app.use("/card", cardRouter);
+  app.use("/auth", accountRouter);
 }
 module.exports = route;
