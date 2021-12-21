@@ -11,8 +11,7 @@ function route(app) {
   app.use("/banner", bannerRouter);
   app.use("/category", categoryRouter);
   app.use("/search_category", allCategoryRouter);
-  app.use("/account", accountRouter);
   app.use("/card", cardRouter);
-  app.use("/auth", accountRouter);
+  app.use("/account", accountRouter);
 }
 module.exports = route;
