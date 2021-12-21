@@ -5,13 +5,6 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET =
   "sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk";
 class AccounController {
-  index(request, response) {
-    response.render("register");
-  }
-  logins(request, response) {
-    response.render("login");
-  }
-
   async register(request, response) {
     const email = request.body.email;
     const password = await bcrypt.hash(request.body.password, 10);
@@ -64,8 +57,8 @@ class AccounController {
 
     if (!user) {
       return response.json({
-        status: "error",
-        error: "Invalid email/password",
+        code: 1,
+        message: "Invalid email/password",
       });
     }
 
@@ -80,7 +73,7 @@ class AccounController {
       );
 
       return response.json({
-        status: "ok",
+        code: 0,
         payload: {
           email: user.email,
           gender: user.gender,
@@ -92,7 +85,7 @@ class AccounController {
       });
     }
 
-    response.json({ status: "error", error: "Invalid email/password" });
+    response.json({ code: 1, message: "Invalid email/password" });
   }
 
   getUserInfo(request, response) {
@@ -116,12 +109,9 @@ class AccounController {
       }
     );
   }
-  changePasswords(request, response) {
-    response.render("changePassword");
-  }
 
   async changePassword(req, res) {
-    const { token, newPassword, reNewPassword,oldPassword } = req.body;
+    const { token, newPassword, reNewPassword, oldPassword } = req.body;
 
     if (!newPassword || typeof newPassword !== "string") {
       return res.json({ status: "error", error: "Invalid password" });
@@ -132,21 +122,24 @@ class AccounController {
       const _id = user.id;
 
       const password = await bcrypt.hash(newPassword, 10);
-     if(await bcrypt.compare(oldPassword,user.password)){
-      if (newPassword === reNewPassword) {
-        await Account.updateOne(
-          { _id },
-          {
-            $set: { password },
-          }
-        );
-        res.json({ status: "ok" });
+      if (await bcrypt.compare(oldPassword, user.password)) {
+        if (newPassword === reNewPassword) {
+          await Account.updateOne(
+            { _id },
+            {
+              $set: { password },
+            }
+          );
+          res.json({ status: "ok" });
+        } else {
+          res.json({
+            status: "error",
+            message: "Xác nhận mật khẩu không đúng",
+          });
+        }
       } else {
-        res.json({ status: "error", message: "Xác nhận mật khẩu không đúng" });
+        res.json({ status: "error", message: "Mật khẩu cũ không chính xác" });
       }
-     }else{
-      res.json({ status: "error", message: "Mật khẩu cũ không chính xác" });
-     }
     } catch (error) {
       console.log(error);
       res.json({ status: "error", error: ";))" });
