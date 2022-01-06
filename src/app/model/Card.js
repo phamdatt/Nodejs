@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 var cartSchema = new Schema({
-  owner: { type: Schema.Types.ObjectID, ref: 'User' },
+  owner: String,
   totalPrice: { type: Number, default: 0 },
   items: [
     {

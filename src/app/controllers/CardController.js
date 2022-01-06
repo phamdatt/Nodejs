@@ -6,7 +6,7 @@ class CardController {
   }
   addToCart(req, res) {
     const quantity = req.body.quantity ?? 1;
-    const owner = '61c05331752b2516d230208d'
+    const owner = req.body.owner;
 
     Products.findById({ _id: req.body.productId }, function (err, foundProduct) {
       if (err) {
@@ -19,7 +19,7 @@ class CardController {
         quantity: 0,
       };
       product = {
-        owner: '61c05331752b2516d230208d',
+        owner: owner,
         totalPrice: quantity * foundProduct.price,
         items: req.body.productId,
         quantity: quantity,
