@@ -4,37 +4,77 @@ class CardController {
   index(request, response) {
     response.render("add_to_card");
   }
-  getCart(request, response, next) {
+  addToCart(req, res) {
+    const quantity = req.body.quantity ?? 1;
+    const owner = '61c05331752b2516d230208d'
+
+    Products.findById({ _id: req.body.productId }, function (err, foundProduct) {
+      if (err) {
+        console.log(err);
+      }
+      let product = {
+        owner: '',
+        totalPrice: 0,
+        items: '',
+        quantity: 0,
+      };
+      product = {
+        owner: '61c05331752b2516d230208d',
+        totalPrice: quantity * foundProduct.price,
+        items: req.body.productId,
+        quantity: quantity,
+      };
+      Cards.findOne({ items: req.body.productId }, function (err, sucess) {
+        if (sucess) {
+          Cards.updateMany({
+            totalPrice: sucess.totalPrice + quantity * foundProduct.price,
+            quantity: sucess.quantity + quantity
+          }, function (err, data) {
+            if (err) {
+              res.json({
+                code: 1,
+                message: 'error'
+              })
+            } else {
+              res.json({
+                code: 0,
+                message: 'success',
+                payload: data,
+              })
+            }
+          })
+        } else {
+          Cards.create(product, function (err, data) {
+            if (err) {
+              console.log(err)
+              res.json({
+                code: 1,
+                message: err,
+              });
+            } else {
+              res.json({
+                code: 1,
+                message: "success",
+                payload: data,
+              });
+            }
+          })
+        }
+      })
+
+    })
+  };
+
+  getCart(req, res, next) {
     Cards.find({})
-      .populate("itemList")
+      .populate("items")
       .then((resp) => {
-        response.json({
+        res.json({
           payload: resp,
         });
       })
       .catch(next);
   }
-  addToCart(request, response, next) {
-    var cards = {
-      userId: request.body.userId,
-      itemList: request.body.productId,
-      quantity: request.body.quantity,
-      price: request.body.price,
-    };
-    Cards.create(cards, function (err, item) {
-      if (err) {
-        return next(err);
-      } else {
-        response.json({
-          code: 0,
-          message: "success",
-          payload: item,
-        });
-      }
-    });
-  }
 
-  updateCart(request, response) {}
-  removeItemCart(request, response) {}
 }
 module.exports = new CardController();
