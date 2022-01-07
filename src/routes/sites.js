@@ -17,4 +17,5 @@ router.put(
   sitesControllers.removeFavorite
 );
 router.put("/add_favorite/productId=:productId", sitesControllers.addFavorite);
+router.get("/getTodayDeal",sitesControllers.getTodayDeal);
 module.exports = router;

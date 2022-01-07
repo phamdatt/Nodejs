@@ -5,6 +5,7 @@ const categoryRouter = require("./category");
 const allCategoryRouter = require("./allCategory");
 const accountRouter = require("./account");
 const cardRouter = require("./card");
+const ordersRouter = require("./order");
 function route(app) {
   app.use("/", sitesRouter);
   app.use("/search", newsRouter);
@@ -13,5 +14,6 @@ function route(app) {
   app.use("/search_category", allCategoryRouter);
   app.use("/card", cardRouter);
   app.use("/account", accountRouter);
+  app.use("/orders", ordersRouter);
 }
 module.exports = route;

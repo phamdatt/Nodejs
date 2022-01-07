@@ -87,5 +87,22 @@ class SitesControllers {
         });
       });
   }
+
+  getTodayDeal(request, response) {
+    Products.findOne({ deal: true }, function (err, data) {
+      if (err) {
+        response.json({
+          code: 1,
+          message: 'error'
+        });
+      } else {
+        response.json({
+          code: 0,
+          message: 'success',
+          payload: [data]
+        });
+      }
+    })
+  }
 }
 module.exports = new SitesControllers();
