@@ -26,9 +26,5 @@ const accountSchema = new Schema({
     type: String,
     required: true,
   },
-  birthday: {
-    type: String,
-    required: true,
-  },
 });
 module.exports = mongoose.model("Account", accountSchema);

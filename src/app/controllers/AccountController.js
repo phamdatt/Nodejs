@@ -11,7 +11,7 @@ class AccounController {
     const gender = request.body.gender;
     const username = request.body.username;
     const phonenumber = request.body.phonenumber;
-    const birthday = request.body.birthday;
+    console.log(request.body)
     Account.findOne({ email: email }, function (err, user) {
       if (err) {
         response.json({
@@ -26,23 +26,24 @@ class AccounController {
           gender: gender,
           username: username,
           phonenumber: phonenumber,
-          birthday: birthday,
         });
         Account.create(user, function (err, data) {
           if (err) {
+            console.log(err)
             response.json({
               code: 1,
               message: err,
             });
           } else {
             response.json({
-              code: 1,
+              code: 0,
               message: "success",
               payload: data,
             });
           }
         });
       } else {
+
         response.json({
           code: 1,
           message: "User is exists",

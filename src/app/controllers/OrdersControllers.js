@@ -57,5 +57,20 @@ class OrdersControllers {
             }
         })
     }
+
+    getOrderList(request, response) {
+        Orders.find().then((resp) => {
+            response.json({
+                code: 0,
+                message: 'success',
+                payload: resp
+            })
+        }).catch((err) => {
+            response.json({
+                code: 1,
+                message: err,
+            })
+        })
+    }
 }
 module.exports = new OrdersControllers();
